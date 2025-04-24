@@ -26,14 +26,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final AuthBloc authBloc;
+  final AuthBloc? authBloc;
 
-  const MyApp({required this.authBloc});
+  const MyApp({this.authBloc});
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider<AuthBloc>.value(value: authBloc)],
+      providers: [BlocProvider<AuthBloc>.value(value: authBloc!)],
       child: MaterialApp(
         title: 'UMKM Marketplace',
         theme: ThemeData(primarySwatch: Colors.indigo),
