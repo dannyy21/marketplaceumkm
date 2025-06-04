@@ -18,7 +18,7 @@ class ProductSectionWidget extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           } else if (state is ProductLoaded) {
             return GridView.builder(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.only(top: 16),
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: state.products.length,

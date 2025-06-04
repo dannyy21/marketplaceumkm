@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:marketplace_umkm/features/auth/presentation/pages/login_page.dart';
 import 'package:marketplace_umkm/features/auth/presentation/pages/register_page.dart';
 import 'package:marketplace_umkm/features/home/presentation/pages/home_page.dart';
+import 'package:marketplace_umkm/features/home/presentation/pages/main_page.dart';
 import 'package:marketplace_umkm/features/home/presentation/widgets/map_full_screen_page.dart';
 import 'package:marketplace_umkm/features/home/presentation/widgets/nearby_section.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -19,7 +20,7 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/home',
       name: 'home',
-      builder: (context, state) => HomePage(),
+      builder: (context, state) => MainPage(),
     ),
     GoRoute(
       path: "/map_full_screen_page",

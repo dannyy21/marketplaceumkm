@@ -14,28 +14,42 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Column(
-            children: [
-              NearbySection(
-                sellers: [
-                  SellerLocation(
-                    id: '1',
-                    name: 'UMKM A',
-                    description: 'Jualan makanan',
-                    latitude: -6.2,
-                    longitude: 106.8,
-                  ),
-                  SellerLocation(
-                    id: '2',
-                    name: 'UMKM B',
-                    description: 'Jualan kerajinan',
-                    latitude: -6.21,
-                    longitude: 106.81,
-                  ),
-                ],
-              ),
-              ProductSectionWidget(),
-            ],
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 18),
+            child: Column(
+              children: [
+                NearbySection(
+                  sellers: [
+                    SellerLocation(
+                      id: '1',
+                      name: 'UMKM A',
+                      description: 'Jualan makanan',
+                      latitude: -6.2,
+                      longitude: 106.8,
+                    ),
+                    SellerLocation(
+                      id: '2',
+                      name: 'UMKM B',
+                      description: 'Jualan kerajinan',
+                      latitude: -6.21,
+                      longitude: 106.81,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      "UMKM Terdekat",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                ProductSectionWidget(),
+              ],
+            ),
           ),
         ),
       ),

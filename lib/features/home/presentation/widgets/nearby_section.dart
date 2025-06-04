@@ -75,71 +75,78 @@ class _NearbySectionState extends State<NearbySection> {
     final LatLng center = userLocation ?? LatLng(-6.212340, 106.12566);
 
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16, top: 16),
+      padding: const EdgeInsets.only(top: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Nearby UMKM",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            "UMKM Sekitar",
+            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
           ),
           SizedBox(height: 12),
-          SizedBox(
-            height: 250,
-            width: double.infinity,
-            child: FlutterMap(
-              options: MapOptions(
-                initialCenter: center,
-                initialZoom: 16.5,
-                interactionOptions: InteractionOptions(
-                  flags: InteractiveFlag.drag | InteractiveFlag.pinchZoom,
-                ),
-              ),
-              children: [
-                TileLayer(
-                  urlTemplate:
-                      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                  subdomains: const ['a', 'b', 'c'],
-                ),
-                MarkerLayer(
-                  markers: [
-                    Marker(
-                      point: userLocation!,
-                      width: 40,
-                      height: 40,
-                      child: const Icon(
-                        Icons.location_on,
-                        color: Colors.blue,
-                        size: 40,
-                      ),
-                    ),
-                    ...widget.sellers.map((seller) {
-                      return Marker(
-                        point: LatLng(seller.latitude, seller.longitude),
-                        width: 40,
-                        height: 40,
-                        child: const Icon(
-                          Icons.location_on,
-                          color: Colors.red,
-                          size: 36,
-                        ),
-                      );
-                    }).toList(),
-                  ],
-                ),
-              ],
-            ),
-          ),
-
-          const SizedBox(height: 8),
-
-          ElevatedButton.icon(
-            icon: const Icon(Icons.map),
-            label: const Text('Lihat Peta Lengkap'),
-            onPressed: () {
+          InkWell(
+            onTap: () {
               context.push('/map_full_screen_page', extra: widget.sellers);
             },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: SizedBox(
+                height: 250,
+                width: double.infinity,
+                child: FlutterMap(
+                  options: MapOptions(
+                    initialCenter: center,
+                    initialZoom: 16.5,
+                    interactionOptions: InteractionOptions(
+                      flags: InteractiveFlag.drag | InteractiveFlag.pinchZoom,
+                    ),
+                  ),
+                  children: [
+                    TileLayer(
+                      urlTemplate:
+                          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                      subdomains: const ['a', 'b', 'c'],
+                    ),
+                    MarkerLayer(
+                      markers: [
+                        Marker(
+                          point: userLocation!,
+                          width: 40,
+                          height: 40,
+                          child: const Icon(
+                            Icons.location_on,
+                            color: Colors.blue,
+                            size: 40,
+                          ),
+                        ),
+                        ...widget.sellers.map((seller) {
+                          return Marker(
+                            point: LatLng(seller.latitude, seller.longitude),
+                            width: 40,
+                            height: 40,
+                            child: const Icon(
+                              Icons.location_on,
+                              color: Colors.red,
+                              size: 36,
+                            ),
+                          );
+                        }).toList(),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
+          SizedBox(height: 16),
+          //
+          // ElevatedButton.icon(
+          //   icon: const Icon(Icons.map),
+          //   label: const Text('Lihat Peta Lengkap'),
+          //   onPressed: () {
+          //     context.push('/map_full_screen_page', extra: widget.sellers);
+          //   },
+          // ),
         ],
       ),
     );

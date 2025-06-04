@@ -72,15 +72,15 @@ class _MyAppState extends State<MyApp> {
       title: 'UMKM Marketplace',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
-        dialogTheme: const DialogTheme(surfaceTintColor: Colors.white),
+        // dialogTheme: const DialogTheme(surfaceTintColor: Colors.white),
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: const AppBarTheme(surfaceTintColor: Colors.white),
-        cardTheme: const CardTheme(color: Colors.transparent),
+        // cardTheme: const CardTheme(color: Colors.transparent),
         popupMenuTheme: const PopupMenuThemeData(
           surfaceTintColor: Colors.white,
         ),
         dividerTheme: const DividerThemeData(color: Color(0xffE2E8F0)),
-        tabBarTheme: const TabBarTheme(
+        tabBarTheme: const TabBarThemeData(
           indicator: UnderlineTabIndicator(
             borderSide: BorderSide(color: Colors.indigo),
           ),
